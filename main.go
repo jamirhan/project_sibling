@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"os"
 	"strings"
 
@@ -15,10 +14,10 @@ type Steward struct {
 }
 
 var (
-	brother_name = "Ахмадшах"
-	prompt = "Ты - мой брат. Отвечай так, как будто ты в общем чате и отвечаешь на сообщение."
+	brother_name          = "Ахмадшах"
+	prompt                = "Ты - мой брат. Отвечай так, как будто ты в общем чате и отвечаешь на сообщение."
 	unexpected_error_text = "ща, пока не могу отвечать"
-	telegram_api_url = "https://api.telegram.org"
+	telegram_api_url      = "https://api.telegram.org"
 )
 
 func (s *Steward) HandleNewMessage(m tclient.Message) {
@@ -30,7 +29,7 @@ func (s *Steward) HandleNewMessage(m tclient.Message) {
 	}
 
 	client := yagptclient.ClientImpl{
-		Token: os.Getenv("YAGPT_TOKEN"),
+		Token:    os.Getenv("YAGPT_TOKEN"),
 		Endpoint: yagptclient.DefaultEndpoint,
 		FolderID: os.Getenv("FOLDER_ID"),
 	}
